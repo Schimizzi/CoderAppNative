@@ -7,6 +7,7 @@ const GlobalColors = {
   warning: 'sandybrown',
   danger: 'red',
   dark: 'black',
+  card: 'slategray',
 
   background: 'white'
 

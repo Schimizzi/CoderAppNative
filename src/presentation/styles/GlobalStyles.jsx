@@ -24,7 +24,22 @@ const GlobalStyles = StyleSheet.create({
   buttonText: {
     color: GlobalColors.background,
     fontSize: 18,
+  },
 
+  buttonTextBold: {
+    color: 'gainsboro',
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+
+  renderProducts: {
+    backgroundColor: GlobalColors.card,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    width: '100%',
+    alignItems: 'center',
+    
   }
 
 

@@ -4,7 +4,7 @@ import ProductsScreen from '../screens/productos/ProductsScreen';
 import SettingsScreen from '../screens/settings/SettingsScreen';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
 import OffersScreen from '../screens/productos/OffersScreen';
-import ProductScreen from '../screens/productos/ProductsScreen';
+import ProductScreen from '../screens/productos/ProductScreen';
 
 
 const Stack = createStackNavigator();

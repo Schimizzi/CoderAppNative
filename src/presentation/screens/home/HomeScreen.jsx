@@ -1,13 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect } from 'react'
 import GlobalStyles from '../../styles/GlobalStyles'
 import PrimaryButton from '../../components/shared/PrimaryButton';
-import { useNavigation } from '@react-navigation/native';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
 
   const navigation = useNavigation();
-
+  
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Pressable onPress={() => navigation.dispatch( DrawerActions.toggleDrawer)}>
+          <Text>menu</Text>
+        </Pressable>
+      )
+    })
+  
+    }, [])
+  
 
   return (
     <View style={GlobalStyles.container} >
