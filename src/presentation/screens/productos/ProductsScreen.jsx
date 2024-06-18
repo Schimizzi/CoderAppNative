@@ -30,6 +30,7 @@ const ProductsScreen = () => {
     </View>
   );
 
+  
   return (
     <View style={GlobalStyles.container} >
       <FlatList

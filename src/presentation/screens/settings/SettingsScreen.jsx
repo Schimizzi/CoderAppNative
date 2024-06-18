@@ -3,6 +3,7 @@ import React from 'react'
 import GlobalStyles from '../../styles/GlobalStyles'
 import PrimaryButton from '../../components/shared/PrimaryButton'
 import { StackActions, useNavigation } from '@react-navigation/native'
+import HomeScreen from '../home/HomeScreen'
 
 const SettingsScreen = () => {
 
@@ -13,7 +14,7 @@ const SettingsScreen = () => {
       <Text>Settings Screen</Text>
       <PrimaryButton
         label='Inicio'
-        onPress={ () => navigator.dispatch( StackActions.popToTop())}
+        onPress={ () => navigator.dispatch( StackActions.popToTop(HomeScreen))}
       />
       <PrimaryButton
         label='Regresar'

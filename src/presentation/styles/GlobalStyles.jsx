@@ -1,12 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
 import GlobalColors from './GlobalColors'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
+const insents = useSafeAreaInsets
 
 const GlobalStyles = StyleSheet.create({
+
 
   container: {
     flex: 1,
     padding: 20,
     backgroundColor: GlobalColors.background,
+    marginTop: insents.top
 
 
   },

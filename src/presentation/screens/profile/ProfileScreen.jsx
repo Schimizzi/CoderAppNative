@@ -1,16 +1,15 @@
 import { View, Text, Pressable } from 'react-native'
 import React from 'react'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { DrawerActions, useNavigation } from '@react-navigation/native'
 import PrimaryButton from '../../components/shared/PrimaryButton'
+import GlobalStyles from '../../styles/GlobalStyles'
 
 const ProfileScreen = () => {
 
-  const insents = useSafeAreaInsets()
   const navigation = useNavigation()
 
   return (
-    <View style={{flex:1, padding: 20, marginTop: insents.top}} >
+    <View style={GlobalStyles.container} >
       <Text>Profile Screen</Text>
       <PrimaryButton 
         onPress={ () => {navigation.dispatch(DrawerActions.toggleDrawer)}}
