@@ -7,7 +7,8 @@ import GlobalStyles from '../../styles/GlobalStyles'
 const ProductScreen = () => {
 
   const { label: producto, descuento } = useRoute().params
-  console.log(producto.brand)
+  console.log(producto.images)
+  
 
   const RenderProducts = ({ item }) => (
     <View style={GlobalStyles.renderProducts} >
@@ -15,12 +16,19 @@ const ProductScreen = () => {
       <Text style={GlobalStyles.buttonTextBold}>{item.title}</Text>
       <Text style={GlobalStyles.buttonText}>{item.description}</Text>
       <Text style={GlobalStyles.buttonTextBold}>${item.price}000</Text>
-      {/*  <Image
-        source={} 
-         
-        style={{ width: 200, height: 400 }}
-        resizeMode="contain"
-      /> */}
+          
+      <FlatList
+        data={producto.images} // Aquí usamos item.images
+        /* horizontal */
+        renderItem={({ item }) => (
+          <Image
+          source={{ uri: item }}
+          style={{ width: 300, height: 350 }}
+          resizeMode="contain"
+        />
+        )}
+        keyExtractor={(imageUri, index) => index.toString()}
+      />
     </View>
 
   );

@@ -20,9 +20,14 @@ const ProductsScreen = () => {
 
   const RenderProducts = ({ item }) => (
     <View style={GlobalStyles.renderProducts} >
-      {/* <Image source={{ uri: item.thumbnail }} /> */}
       <Text style={GlobalStyles.buttonTextBold} >{item.title}</Text>
       <Text style={GlobalStyles.buttonText}>${item.price}000</Text>
+      <Image
+        source={{ uri: item.thumbnail }}
+         
+        style={{ width: 200, height: 300 }}
+        resizeMode="contain"
+      />
       <PrimaryButton
         onPress={() => navigation.navigate('Product', { label: item })}
         label='Detalles'
