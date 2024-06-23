@@ -25,7 +25,6 @@ const HomeScreen = () => {
 
 
   return (
-    <>
 
       <View style={GlobalStyles.container} >
 
@@ -51,7 +50,6 @@ const HomeScreen = () => {
         label='Ajustes'
         /> */}
       </View>
-    </>
   )
 }
 
