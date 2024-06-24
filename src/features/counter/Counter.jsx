@@ -6,13 +6,12 @@ import { settingValue } from "./CounterSlice";
 import GlobalColors from "../../presentation/styles/GlobalColors";
 
 
-const Counter = ({producto}) => {
+const Counter = () => {
 
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
 
   const [inputToAdd, setInputToAdd] = useState(null);
-
   
   return (
     <View style={GlobalStyles.container}>

@@ -1,20 +1,28 @@
 import { useRoute } from '@react-navigation/native';
 import { FlatList, Text, View, Image } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import GlobalStyles from '../../styles/GlobalStyles';
 import Counter from '../../../features/counter/Counter';
 import DrawerBar from '../../components/shared/DrawerBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { productName } from '../../../features/counter/CounterSlice';
 
 const ProductScreen = () => {
   const route = useRoute();
+  const dispatch = useDispatch()
   const { label: producto } = route.params;
   
   if (!producto) {
     console.error('Producto no encontrado en params');
     return null; 
   }
+  useEffect(() => {
+    dispatch(productName(producto.title))
+  }, [dispatch, producto.title])
 
-  console.log('para Redux, el nombre el producto en Product: ' + producto.title);
+  console.log(producto.title)
+  const productoTiTle = useSelector((state) => state.product.productName)
+  console.log('para Redux, el nombre del producto en Product: ' + productoTiTle);
 
   const RenderProducts = ({ item }) => (
     <View style={GlobalStyles.renderProducts}>

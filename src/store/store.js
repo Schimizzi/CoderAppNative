@@ -5,6 +5,8 @@ import counterSliceReduce from "../features/counter/CounterSlice";
 
 export default configureStore ({
     reducer: {
-        counter: counterSliceReduce
+        counter: counterSliceReduce,
+        category: counterSliceReduce,
+        product: counterSliceReduce,
     }
 })
