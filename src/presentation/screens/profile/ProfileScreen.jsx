@@ -3,6 +3,7 @@ import React from 'react'
 import { DrawerActions, useNavigation } from '@react-navigation/native'
 import PrimaryButton from '../../components/shared/PrimaryButton'
 import GlobalStyles from '../../styles/GlobalStyles'
+import DrawerBar from '../../components/shared/DrawerBar'
 
 const ProfileScreen = () => {
 
@@ -10,6 +11,7 @@ const ProfileScreen = () => {
 
   return (
     <View style={GlobalStyles.container} >
+      <DrawerBar />
       <Text>Profile Screen</Text>
       <PrimaryButton 
         onPress={ () => {navigation.dispatch(DrawerActions.toggleDrawer)}}

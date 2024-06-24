@@ -29,6 +29,7 @@ const GlobalStyles = StyleSheet.create({
   buttonText: {
     color: GlobalColors.background,
     fontSize: 18,
+    textAlign: 'center'
   },
 
   buttonTextBold: {
@@ -45,8 +46,7 @@ const GlobalStyles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     
-  }
-
+  },
 
 })
 

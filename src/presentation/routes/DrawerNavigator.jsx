@@ -21,7 +21,7 @@ const DrawerNavigator = () => {
     <Drawer.Navigator 
       initialRouteName="StackNavigator"
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
         drawerType: 'slide',
         drawerInactiveTintColor: 'black',
         drawerActiveTintColor: 'white',
@@ -38,9 +38,20 @@ const DrawerNavigator = () => {
       <Drawer.Screen name="Categorias" component={CategoriesScreen} />
       <Drawer.Screen name="Ofertas" component={OffersScreen} />
       <Drawer.Screen name="Ajustes" component={SettingsScreen} />
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
       <Drawer.Screen name="Perfil" component={ProfileScreen} />
-      <Drawer.Screen name="Carrito" component={CartScreen} />
+      <Drawer.Screen 
+        name="Carrito" 
+        component={CartScreen} 
+        options={{ title: 'Mi carritototo' }} 
+      />
+      <Drawer.Screen 
+        name="StackNavigator" 
+        component={StackNavigator} 
+        options={{
+          drawerItemStyle: { display: 'none' },
+          title: 'Comprame'
+        }}
+      />
     </Drawer.Navigator>
   );
 }

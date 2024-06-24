@@ -4,6 +4,7 @@ import GlobalStyles from '../../styles/GlobalStyles'
 import PrimaryButton from '../../components/shared/PrimaryButton'
 import { StackActions, useNavigation } from '@react-navigation/native'
 import HomeScreen from '../home/HomeScreen'
+import DrawerBar from '../../components/shared/DrawerBar'
 
 const SettingsScreen = () => {
 
@@ -11,6 +12,7 @@ const SettingsScreen = () => {
 
   return (
     <View style={GlobalStyles.container} >
+      <DrawerBar />
       <Text>Settings Screen</Text>
       <PrimaryButton
         label='Inicio'

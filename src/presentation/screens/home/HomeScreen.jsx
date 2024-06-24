@@ -4,31 +4,16 @@ import React, { useEffect } from 'react'
 import GlobalStyles from '../../styles/GlobalStyles'
 import PrimaryButton from '../../components/shared/PrimaryButton';
 import DrawerBar from '../../components/shared/DrawerBar';
+import Counter from '../../../features/counter/Counter';
 
 const HomeScreen = () => {
-
-  const navigation = useNavigation();
-
-
-  useEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <Pressable onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
-          <Text>menu</Text>
-        </Pressable>
-      )
-    })
-
-  }, [])
-
-
-
 
   return (
 
       <View style={GlobalStyles.container} >
-
+        <DrawerBar />
         <Text>foto y promociones</Text>
+        <Counter />
         {/*  <PrimaryButton
         onPress={ () => navigation.navigate('Home') }
         label='arranque'

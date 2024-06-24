@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Text } from 'react-native';
 import { StackNavigator } from './src/presentation/routes/StackNavigator';
 import { useEffect } from 'react'
+import { Provider } from 'react-redux';
+import store from './src/store/store'
 
 
 
@@ -13,11 +15,10 @@ export default function App() {
   
   return (
     <NavigationContainer>
-
-      {/* <StackNavigator /> */}
-
-      <DrawerNavigator />
-
+      <Provider store={store}>
+        {/* <StackNavigator /> */}
+        <DrawerNavigator />
+      </Provider>
     </NavigationContainer>
   );
 }
