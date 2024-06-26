@@ -1,0 +1,1 @@
+export const baseUrl = "https://coderappcommerce-default-rtdb.firebaseio.com/"
