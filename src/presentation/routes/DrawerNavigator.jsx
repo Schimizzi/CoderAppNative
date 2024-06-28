@@ -1,12 +1,9 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { View, Text } from 'react-native'
 import { StackNavigator } from './StackNavigator';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import HomeScreen from '../screens/home/HomeScreen';
-import GlobalStyles from '../styles/GlobalStyles';
 import GlobalColors from '../styles/GlobalColors';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
-import OffersScreen from '../screens/productos/OffersScreen';
 import SettingsScreen from '../screens/settings/SettingsScreen';
 import CartScreen from '../screens/carrito/CartScreen';
 
@@ -36,7 +33,6 @@ const DrawerNavigator = () => {
       
       <Drawer.Screen name="Inicio" component={HomeScreen} />
       <Drawer.Screen name="Categorias" component={CategoriesScreen} />
-      <Drawer.Screen name="Ofertas" component={OffersScreen} />
       <Drawer.Screen name="Ajustes" component={SettingsScreen} />
       <Drawer.Screen name="Perfil" component={ProfileScreen} />
       <Drawer.Screen 

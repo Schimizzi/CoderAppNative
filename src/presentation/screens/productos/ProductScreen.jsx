@@ -9,20 +9,24 @@ import { productName } from '../../../features/counter/CounterSlice';
 
 const ProductScreen = () => {
   const route = useRoute();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { label: producto } = route.params;
-  
+
   if (!producto) {
     console.error('Producto no encontrado en params');
-    return null; 
+    return (
+      <View style={GlobalStyles.container}>
+        <Text style={GlobalStyles.errorText}>Producto no encontrado</Text>
+      </View>
+    );
   }
-  useEffect(() => {
-    dispatch(productName(producto.title))
-  }, [dispatch, producto.title])
 
-  console.log(producto.title)
-  const productoTiTle = useSelector((state) => state.product.productName)
-  console.log('para Redux, el nombre del producto en Product: ' + productoTiTle);
+  useEffect(() => {
+    dispatch(productName(producto.title));
+  }, [dispatch, producto.title]);
+
+  const productoTitle = useSelector((state) => state.product.productName);
+  console.log('para Redux, el nombre del producto en Product: ' + productoTitle);
 
   const RenderProducts = ({ item }) => (
     <View style={GlobalStyles.renderProducts}>
@@ -32,7 +36,7 @@ const ProductScreen = () => {
       <Text style={GlobalStyles.buttonTextBold}>${item.price}000</Text>
 
       <FlatList
-        data={producto.images}
+        data={item.images}
         renderItem={({ item }) => (
           <Image
             source={{ uri: item }}
@@ -52,11 +56,11 @@ const ProductScreen = () => {
         <FlatList
           data={[producto]}
           renderItem={RenderProducts}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
       <View style={{ flex: 2 }}>
-        <Counter producto = {producto}/>
+        <Counter producto={producto} />
       </View>
     </View>
   );

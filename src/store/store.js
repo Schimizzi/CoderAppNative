@@ -5,14 +5,14 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 
 
 
-const store = configureStore ({
-    reducer: {
-        counter: counterSliceReduce,
-        category: counterSliceReduce,
-        product: counterSliceReduce,
-        [shopApi.reducerPath]: shopApi.reducer,
-    },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shopApi.middleware),
+const store = configureStore({
+  reducer: {
+    counter: counterSliceReduce,
+    category: counterSliceReduce,
+    product: counterSliceReduce,
+    [shopApi.reducerPath]: shopApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shopApi.middleware),
 });
 
 setupListeners(store.dispatch)

@@ -3,7 +3,6 @@ import HomeScreen from '../screens/home/HomeScreen';
 import ProductsScreen from '../screens/productos/ProductsScreen';
 import SettingsScreen from '../screens/settings/SettingsScreen';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
-import OffersScreen from '../screens/productos/OffersScreen';
 import ProductScreen from '../screens/productos/ProductScreen';
 import GlobalColors from '../styles/GlobalColors';
 
@@ -26,7 +25,6 @@ export const StackNavigator = () => {
       }
     }}>
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Offers" component={OffersScreen} />      
       <Stack.Screen name="Products" component={ProductsScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen 

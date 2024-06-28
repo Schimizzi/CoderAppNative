@@ -1,29 +1,39 @@
 import { useNavigation, useRoute } from '@react-navigation/native'
-import { FlatList, Text, View, Image } from 'react-native'
+import { FlatList, Text, View, Image, ActivityIndicator } from 'react-native'
 import React, { useEffect } from 'react'
-import ProductosJSON from '../../data/products.json'
 import PrimaryButton from '../../components/shared/PrimaryButton'
 import GlobalStyles from '../../styles/GlobalStyles'
 import DrawerBar from '../../components/shared/DrawerBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { categoryName } from '../../../features/counter/CounterSlice'
+import { useGetProductsQuery } from '../../services/shopServices'
 
 const ProductsScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  
   const route = useRoute();
   const { label: itemCategories } = route.params;
-  
-  const productosFiltrados = ProductosJSON.filter(producto => producto.category === itemCategories);
-  
+
+  const { data: products, isLoading, error } = useGetProductsQuery(itemCategories); // firebase
+
   useEffect(() => {
-    dispatch(categoryName(itemCategories))
-  }, [itemCategories, dispatch])
-  
-  const categoryTitle = useSelector((state) => state.category.categoryName)
-  console.log('para Redux, Category en Products: ' + categoryTitle)
-  
+    if (itemCategories) {
+      dispatch(categoryName(itemCategories));
+    }
+  }, [itemCategories, dispatch]);
+
+  const categoryTitle = useSelector((state) => state.category.categoryName);
+  console.log('para Redux, Category en Products: ' + categoryTitle);
+
+  useEffect(() => {
+    if (products) {
+      products.forEach((product) => {
+        console.log(`ProductoForEach : `, product);
+        console.log(`Productos : `, products);
+      });
+    }
+  }, [products]);
+
   const RenderProducts = ({ item }) => (
     <View style={GlobalStyles.renderProducts}>
       <Text style={GlobalStyles.buttonTextBold}>{item.title}</Text>
@@ -40,16 +50,32 @@ const ProductsScreen = () => {
     </View>
   );
 
+  if (isLoading) {
+    return (
+      <View style={[GlobalStyles.container, GlobalStyles.center]}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={GlobalStyles.container}>
+        <Text style={GlobalStyles.errorText}>error!!!</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={GlobalStyles.container}>
       <DrawerBar />
       <FlatList
-        data={productosFiltrados}
+        data={products}
         renderItem={RenderProducts}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
       />
     </View>
   );
 };
 
-export default ProductsScreen
+export default ProductsScreen;

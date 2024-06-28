@@ -1,8 +1,6 @@
-import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import GlobalStyles from '../../styles/GlobalStyles'
-import PrimaryButton from '../../components/shared/PrimaryButton';
 import DrawerBar from '../../components/shared/DrawerBar';
 import Counter from '../../../features/counter/Counter';
 
@@ -25,10 +23,6 @@ const HomeScreen = () => {
         <PrimaryButton
         onPress={ () => navigation.navigate('Categories') }
         label='Categorias'
-        />
-        <PrimaryButton
-        onPress={ () => navigation.navigate('Offers') }
-        label='Ofertas'
         />
         <PrimaryButton
         onPress={ () => navigation.navigate('Settings') }
