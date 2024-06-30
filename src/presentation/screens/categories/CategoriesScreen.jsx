@@ -11,7 +11,8 @@ const CategoriesScreen = () => {
 
   const navigation = useNavigation();
   const { data } = useGetCategoriesQuery()
-  console.log('de firebase ' + data)
+  console.log('data')
+  console.log(data)
 
   return (
     <View style={GlobalStyles.container} >

@@ -6,14 +6,44 @@ import Counter from '../../../features/counter/Counter';
 import DrawerBar from '../../components/shared/DrawerBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { productName } from '../../../features/counter/CounterSlice';
+import { useGetProductQuery } from '../../services/shopServices';
 
 const ProductScreen = () => {
   const route = useRoute();
   const dispatch = useDispatch();
   const { label: producto } = route.params;
 
+  useEffect(() => { //a revisar
+    if (producto) {
+      dispatch(productName(producto.title));
+    }
+  }, [dispatch, producto]);
+
+  const productoTitle = useSelector((state) => state.product.productName);
+  console.log('productoTitle: ' +productoTitle )
+  const { data, isLoading, error } = useGetProductQuery(producto.id);
+  console.log('data del useGetProductQuery')
+  console.log(data)
+  console.log('data del producto')
+  console.log(producto)
+
+  if (isLoading) {
+    return (
+      <View style={GlobalStyles.container}>
+        <Text style={GlobalStyles.loadingText}>Cargando...</Text>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={GlobalStyles.container}>
+        <Text style={GlobalStyles.errorText}>Error al cargar el producto</Text>
+      </View>
+    );
+  }
+
   if (!producto) {
-    console.error('Producto no encontrado en params');
     return (
       <View style={GlobalStyles.container}>
         <Text style={GlobalStyles.errorText}>Producto no encontrado</Text>
@@ -21,20 +51,12 @@ const ProductScreen = () => {
     );
   }
 
-  useEffect(() => {
-    dispatch(productName(producto.title));
-  }, [dispatch, producto.title]);
-
-  const productoTitle = useSelector((state) => state.product.productName);
-  console.log('para Redux, el nombre del producto en Product: ' + productoTitle);
-
   const RenderProducts = ({ item }) => (
     <View style={GlobalStyles.renderProducts}>
       <Text style={GlobalStyles.buttonText}>{item.brand}</Text>
       <Text style={GlobalStyles.buttonTextBold}>{item.title}</Text>
       <Text style={GlobalStyles.buttonText}>{item.description}</Text>
       <Text style={GlobalStyles.buttonTextBold}>${item.price}000</Text>
-
       <FlatList
         data={item.images}
         renderItem={({ item }) => (

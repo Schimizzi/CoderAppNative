@@ -22,14 +22,15 @@ const ProductsScreen = () => {
     }
   }, [itemCategories, dispatch]);
 
-  const categoryTitle = useSelector((state) => state.category.categoryName);
-  console.log('para Redux, Category en Products: ' + categoryTitle);
+  console.log('para Redux, Category en Products: ' + itemCategories);
 
   useEffect(() => {
     if (products) {
       products.forEach((product) => {
-        console.log(`ProductoForEach : `, product);
-        console.log(`Productos : `, products);
+        console.log('ProductoForEach')
+        console.log(product);
+        console.log('Productos')
+        console.log(products);
       });
     }
   }, [products]);

@@ -15,9 +15,6 @@ const Counter = () => {
   
   return (
     <View style={GlobalStyles.container}>
-      <View >
-        <Text style={[GlobalStyles.buttonText, {color: 'black'}]}>{count + ' item/s agregado/s'}</Text>
-      </View>
       <View style={{flexDirection: "row"}}>
         <TextInput
           placeholder="Cantidad deseada"
@@ -27,7 +24,7 @@ const Counter = () => {
           
         />
         <Pressable
-          style={{padding: 10, borderRadius: 5, backgroundColor: GlobalColors.primary }}
+          style={{padding: 3, borderRadius: 5, backgroundColor: GlobalColors.primary}}
           onPress={() => {dispatch(settingValue(Number(inputToAdd)));
             setInputToAdd('');
           }}

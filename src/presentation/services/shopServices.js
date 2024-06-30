@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseUrl } from "../databases/realtimeDataBase";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { baseUrl } from "../databases/realtimeDataBase"
 
 export const shopApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
@@ -10,15 +10,16 @@ export const shopApi = createApi({
     getProducts: builder.query({
       query: (category) => `products.json?orderBy="category"&equalTo="${category}"`,
       transformResponse: (response) => {
-        const transformResp = Object.values(response);
-        return transformResp;
+        const transformResp = Object.values(response)
+        console.log(transformResp)
+        return transformResp
       }
     }),
     getProduct: builder.query({
       query: (productId) => `products.json?orderBy="id"&equalTo=${productId}`,
       transformResponse: (response) => {
-        const transformResp = Object.values(response);
-        return transformResp;
+        const transformResp = Object.values(response)
+        if(transformResp.length) return transformResp[0]
       }
 
     })
