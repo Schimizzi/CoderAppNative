@@ -9,6 +9,14 @@ export const ShopSliceReduce = createSlice({
         },
     },
     reducers: {
-        setCatego
+        setCategorySelected: (state, action) => {
+            state.value.cate1 = action.payload;
+        },
+        setItemSelected: (state, {payload}) => {
+            state.value.item1 = payload;
+        },
     }
 })
+
+export const { setCategorySelected, setItemSelected} = ShopSliceReduce.actions;
+export default ShopSliceReduce.reducer

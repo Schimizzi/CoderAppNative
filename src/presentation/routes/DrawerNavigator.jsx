@@ -48,6 +48,7 @@ const DrawerNavigator = () => {
           title: 'Comprame'
         }}
       />
+      
     </Drawer.Navigator>
   );
 }

@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GlobalStyles from "../../presentation/styles/GlobalStyles";
@@ -13,6 +13,10 @@ const Counter = () => {
 
   const [inputToAdd, setInputToAdd] = useState(null);
   
+  const handleAddCart = () => {
+    //agregar
+  }
+
   return (
     <View style={GlobalStyles.container}>
       <View style={{flexDirection: "row"}}>
@@ -23,6 +27,7 @@ const Counter = () => {
           value={inputToAdd}
           
         />
+        <Button title="Add cart" onPress={handleAddCart}></Button>
         <Pressable
           style={{padding: 3, borderRadius: 5, backgroundColor: GlobalColors.primary}}
           onPress={() => {dispatch(settingValue(Number(inputToAdd)));

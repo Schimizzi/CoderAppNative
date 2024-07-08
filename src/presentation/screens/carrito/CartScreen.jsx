@@ -5,7 +5,9 @@ import DrawerBar from '../../components/shared/DrawerBar'
 import { useSelector } from 'react-redux'
 
 
+
 const CartScreen = () => {
+  //const total = CartData.reducer()
 
   const count = useSelector((state) => state.counter.value)
   const category = useSelector((state) => state.category.categoryName)
